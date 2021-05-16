@@ -21,7 +21,7 @@ const SearchBar = () => {
         >
             <Form.Group controlId="formEmail">
                 <Form.Label className="mt-2">Email address</Form.Label>
-                <Form.Control type="email" placeholder="email@email.com" onChange={(e)=>setEmail(e.target.value)} />
+                <Form.Control required type="email" placeholder="email@email.com" onChange={(e)=>setEmail(e.target.value)} />
                 <Form.Text className="text-muted">
                     Only used for sending you the results.
                 </Form.Text>
@@ -29,7 +29,7 @@ const SearchBar = () => {
 
             <Form.Group controlId="formPassword">
                 <Form.Label>Host Url to scrape for text</Form.Label>
-                <Form.Control type="url" placeholder="http://www.example.com" onChange={(e)=>setUrl(e.target.value)}/>
+                <Form.Control required type="url" placeholder="http://www.example.com" onChange={(e)=>setUrl(e.target.value)}/>
             </Form.Group>
 
             <Button className="float-right" variant="primary" type="submit" onSubmit={onSubmit}>
