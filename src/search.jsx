@@ -1,15 +1,15 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 const SearchBar = () => {
-    const [searchValue, setSearchValue] = useState("");
+
+    const [email, setEmail] = useState("");
+    const [url, setUrl] = useState("");
 
     const onSubmit = (e) => {
         e.preventDefault();
-        setSearchValue("AAAAAAAAAAAAAAAAAA");
-        console.log(searchValue);
+        console.log(email);
+        console.log(url);
     };
 
     return (
@@ -17,29 +17,24 @@ const SearchBar = () => {
             action="/"
             method="get"
             onSubmit={onSubmit}
-            className="d-flex align-items-center"
+            // className="d-flex align-items-left"
         >
-            <Form.Group className="mx-auto">
-                <Form.Label
-                    className="text-left"
-                >
-                    Enter host url to scrape for text
-                </Form.Label>
-                <InputGroup>
-                    <Form.Control
-                        className=""
-                        type="url"
-                        placeholder="example.com"
-                        onChange={(e) => setSearchValue(e.target.value)}
-                        value={searchValue}
-                    />
-                    <InputGroup.Append>
-                        <Button className="" type="submit">
-                            <FontAwesomeIcon icon={faSearch} />
-                        </Button>
-                    </InputGroup.Append>
-                </InputGroup>
+            <Form.Group controlId="formEmail">
+                <Form.Label className="mt-2">Email address</Form.Label>
+                <Form.Control type="email" placeholder="email@email.com" onChange={(e)=>setEmail(e.target.value)} />
+                <Form.Text className="text-muted">
+                    Only used for sending you the results.
+                </Form.Text>
             </Form.Group>
+
+            <Form.Group controlId="formPassword">
+                <Form.Label>Host Url to scrape for text</Form.Label>
+                <Form.Control type="url" placeholder="http://www.example.com" onChange={(e)=>setUrl(e.target.value)}/>
+            </Form.Group>
+
+            <Button className="float-right" variant="primary" type="submit" onSubmit={onSubmit}>
+                Submit
+            </Button>
         </Form>
     );
 };

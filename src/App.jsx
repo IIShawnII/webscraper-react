@@ -6,14 +6,23 @@ function App() {
     return (
         <div className="d-flex align-items-center vh-100">
             <Card className="m-auto">
-                <Container className="text-center">
+                <Container className="text-left">
                     <Row className="">
                         <Col>
                             <Search />
                         </Col>
                     </Row>
-                    <Row className="">
-                        <Col sm>Report missing text</Col>
+                    <Row className="text-right">
+                        <Col
+                            sm
+                            as="a"
+                            href="mailto:shariar@dnsnetworks.com"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-3 mb-2"
+                        >
+                            Report missing text from scrapper
+                        </Col>
                     </Row>
                 </Container>
             </Card>
